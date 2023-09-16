@@ -1,6 +1,6 @@
-import { z, defineColection } from 'astro:content';
+import { z, defineCollection } from 'astro:content';
 
-const daily = defineCollection ({
+const post = defineCollection ({
   type: 'content',
   schema : z.object({
     title: z.string(),
