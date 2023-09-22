@@ -1,0 +1,29 @@
+---
+import '../style/styles.css';
+import '../style/prism.css';
+
+interface Props {
+  title : string
+  description : string
+}
+
+const { title , description } = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Font preload -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<!-- Primary Meta tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />

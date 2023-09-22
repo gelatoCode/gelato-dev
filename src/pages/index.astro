@@ -1,19 +1,50 @@
 ---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Tab from '../components/Tab.astro';
+import Card from '../components/Card.astro';
+import Footer from '../components/Footer.astro';
 
+import { getCollection } from 'astro:content';
+
+const post =  await getCollection('post');
 ---
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<BaseHead title='Gelato' description='index-page' />
 	</head>
 	<body>
-		<h1>Post</h1>
-		<ul>
-			<li><a href="/post/markdown/">markdown</a></li>
-		</ul>
+		<Header />
+		<main>
+			<div class="main-content">
+				<div class="index-content">
+					<div id="headline">
+						<h3>Hi there,</h3>
+						<p>Gelato will developer project using <span id="node">Node.js</span>. It is cross-platform JavaScript runtime environment and open-source.
+					</div>
+				</div>
+				<div class="index-content">
+					<Tab />
+				</div>
+				<div class="index-content">
+					<div id="posts">
+						<h2>Daily Post</h2>
+						<div class="wrapper-post">
+							{
+								post.map((x) => (
+									<Card 
+										title={x.data.title}
+										pubDate={x.data.pubDate}
+										slug={x.slug}
+									/>
+								))
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
 	</body>
 </html>

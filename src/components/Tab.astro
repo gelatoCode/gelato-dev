@@ -1,0 +1,52 @@
+---
+
+---
+
+<div id="tab">
+    <h2>Getting Started with <span id="node">Node.js</span></h2>
+    <div class="tab">
+        <button class="btn_tab active" data-id="nodes">Node</button>
+        <button class="btn_tab" data-id="framework">Framework</button>
+    </div>
+    <div class="ctn_tab active" id="nodes">
+        <ul>
+            <li>Download & Install <span id="node">Node.js</span> on Windows</li>
+            <p>Version : 18.17.1</p>
+            <li>Editor</li>
+            <p>Visual Studio Code</p>
+            <li>Git & GitHub</li>
+            <p>GitHub</p>
+        </ul>
+    </div>
+    <div class="ctn_tab" id="framework">
+        <ul>
+            <li>Express</li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    const tab = document.querySelector('.tab');
+    const btn = document.querySelectorAll('.btn_tab');
+    const ctn = document.querySelectorAll('.ctn_tab');
+
+    tab.onclick = e => {
+        const id = e.target.dataset.id;
+
+        if(id) {
+            btn.forEach(btn => {
+                btn.classList.remove('active');
+            })
+
+            e.target.classList.add('active');
+
+            ctn.forEach(ctn => {
+                ctn.classList.remove('active');
+            })
+
+            const element = document.getElementById(id)
+            element.classList.add('active');
+        }
+    }
+</script>

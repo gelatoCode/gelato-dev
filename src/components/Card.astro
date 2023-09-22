@@ -1,0 +1,18 @@
+---
+import Formatted from './Formatted.astro'
+
+interface Props {
+    title : string
+    pubDate : Date
+    slug : string
+}
+
+const { title, pubDate, slug } = Astro.props;
+---
+
+<div id="card">
+    <div class="card-ctn">
+        <Formatted date={pubDate} />
+        <a href={`../post/${slug}`}><h3>{title}</h3></a>
+    </div>
+</div>

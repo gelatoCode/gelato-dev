@@ -1,0 +1,26 @@
+---
+import Link from './Link.astro';
+---
+
+<header id="page">
+  <div id="header-ctn">
+    <a href="/"><h2>Gelato</h2></a>
+    <div class="nav_ctn">
+      <Link href={'/'}>Home</Link>
+      <Link href={'../../post'}>Blog</Link>
+    </div>
+</header>
+
+<script>
+  const header = document.getElementById('page');
+  const intercept = document.createElement('div');
+
+  intercept.setAttribute('data-observer-intercept', '');
+  header?.before(intercept);
+
+  const observer = new IntersectionObserver (([entry]) => {
+      header?.classList.toggle("active", !entry.isIntersecting);
+  });
+
+observer.observe(intercept);
+</script>
